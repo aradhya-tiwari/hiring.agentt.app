@@ -8,11 +8,11 @@ const app = new Hono()
   })
   .route("/ai-meet", aiMeetRoute)
 
-serve({
-  fetch: app.fetch,
-  port: 3000
-}, (info) => {
-  console.log(`Server is running on port ${info.port}`)
-})
-
+// serve({
+//   fetch: app.fetch,
+//   port: 3000
+// }, (info) => {
+//   console.log(`Server is running on port ${info.port}`)
+// })
+export default app
 export type AppType = typeof app

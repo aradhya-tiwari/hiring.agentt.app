@@ -2,8 +2,10 @@ export type scheduleTableType = {
     id?: number,
     date: Date,
     type: string,
+    name: string,
     candidateId: number,
-    notes?: any,
+    candidateName: string,
+    notes?: Array<{ by: number, text: string }>,
     assignedTo?: number,
     status?: string,
 }
@@ -15,6 +17,8 @@ class ScheduleStore {
         // TODO add validation
 
         this.schedule.push(obj)
+
+        // TODO add server query 
     }
     update(id: number, obj: scheduleTableType) {
         for (let i = 0; i < this.schedule.length; i++) {
@@ -26,7 +30,9 @@ class ScheduleStore {
                     candidateId: obj.candidateId,
                     assignedTo: obj.assignedTo,
                     notes: obj.notes,
-                    status: obj.status
+                    status: obj.status,
+                    name: obj.name,
+                    candidateName: obj.candidateName
                 }
                 this.schedule[i] = updatedRes
                 return
@@ -35,6 +41,5 @@ class ScheduleStore {
         throw "No object with id" + id
     }
 }
-
-let s = new ScheduleStore()
-s.update(1002, { candidateId: 1, date: new Date(), type: "" })
+export let scheduleStore = new ScheduleStore()
+// scheduleStore.update(1002, { candidateId: 1, date: new Date(), type: "" })

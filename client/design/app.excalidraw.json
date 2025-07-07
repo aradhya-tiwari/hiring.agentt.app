@@ -1444,6 +1444,60 @@
       "elbowed": false
     },
     {
+      "id": "Fod_3-MBzwmPXORqJFxFk",
+      "type": "arrow",
+      "x": 1667.5864657967568,
+      "y": 202.34854537702563,
+      "width": 449.81403199444094,
+      "height": 136.20323266174728,
+      "angle": 0,
+      "strokeColor": "#1e1e1e",
+      "backgroundColor": "transparent",
+      "fillStyle": "solid",
+      "strokeWidth": 2,
+      "strokeStyle": "solid",
+      "roughness": 1,
+      "opacity": 100,
+      "groupIds": [],
+      "frameId": null,
+      "index": "aQzz",
+      "roundness": {
+        "type": 2
+      },
+      "seed": 1069153175,
+      "version": 485,
+      "versionNonce": 1900239863,
+      "isDeleted": false,
+      "boundElements": [],
+      "updated": 1751540239635,
+      "link": null,
+      "locked": false,
+      "points": [
+        [
+          0,
+          0
+        ],
+        [
+          412.04339248600854,
+          136.20323266174728
+        ],
+        [
+          449.81403199444094,
+          105.29998215484818
+        ]
+      ],
+      "lastCommittedPoint": null,
+      "startBinding": {
+        "elementId": "SLm5ugINnbYvoQjSKs4Un",
+        "focus": 0,
+        "gap": 10.069098756341504
+      },
+      "endBinding": null,
+      "startArrowhead": null,
+      "endArrowhead": "arrow",
+      "elbowed": false
+    },
+    {
       "id": "kTQwNAfNG0zAQXVDlbzBC",
       "type": "frame",
       "x": 1015.7177007964999,
@@ -1496,16 +1550,20 @@
         "type": 3
       },
       "seed": 1915020409,
-      "version": 157,
-      "versionNonce": 466461431,
+      "version": 160,
+      "versionNonce": 930203063,
       "isDeleted": false,
       "boundElements": [
         {
           "id": "9gSuvKvnoDyEbdGMh_Iyg",
           "type": "arrow"
+        },
+        {
+          "id": "Fod_3-MBzwmPXORqJFxFk",
+          "type": "arrow"
         }
       ],
-      "updated": 1751537593158,
+      "updated": 1751540232084,
       "link": null,
       "locked": false
     },
@@ -2123,10 +2181,10 @@
     {
       "id": "MD3og5UYwvK7McPPX6f5J",
       "type": "rectangle",
-      "x": 1915.49108971027,
-      "y": -78.27661052630333,
-      "width": 537.2482441757579,
-      "height": 459.3055618951552,
+      "x": 1917.780289236141,
+      "y": -72.55366410564545,
+      "width": 270.5645680908604,
+      "height": 184.61000183382947,
       "angle": 0,
       "strokeColor": "#1e1e1e",
       "backgroundColor": "transparent",
@@ -2142,11 +2200,11 @@
         "type": 3
       },
       "seed": 1162916249,
-      "version": 104,
-      "versionNonce": 172184857,
+      "version": 193,
+      "versionNonce": 1965040983,
       "isDeleted": false,
       "boundElements": null,
-      "updated": 1751537612669,
+      "updated": 1751540212729,
       "link": null,
       "locked": false
     },
@@ -2184,6 +2242,73 @@
       "verticalAlign": "top",
       "containerId": null,
       "originalText": "Time \nDate\ncandidate jiska interview \nassigned kisko\nmeet link ya kuch aur link\nremarks:\n\n",
+      "autoResize": true,
+      "lineHeight": 1.25
+    },
+    {
+      "id": "Hee_5qrIpnRt5liLxnJzk",
+      "type": "rectangle",
+      "x": 1959.4504983619154,
+      "y": 169.1561477382753,
+      "width": 445.23584251877946,
+      "height": 129.3358436602142,
+      "angle": 0,
+      "strokeColor": "#1e1e1e",
+      "backgroundColor": "transparent",
+      "fillStyle": "solid",
+      "strokeWidth": 2,
+      "strokeStyle": "solid",
+      "roughness": 1,
+      "opacity": 100,
+      "groupIds": [],
+      "frameId": null,
+      "index": "ai",
+      "roundness": {
+        "type": 3
+      },
+      "seed": 1312295479,
+      "version": 43,
+      "versionNonce": 858829593,
+      "isDeleted": false,
+      "boundElements": null,
+      "updated": 1751540243863,
+      "link": null,
+      "locked": false
+    },
+    {
+      "id": "Vomdx3yT4GhW1xu2irQ5R",
+      "type": "text",
+      "x": 1993.787443369581,
+      "y": 188.61376737395915,
+      "width": 160.7198486328125,
+      "height": 60,
+      "angle": 0,
+      "strokeColor": "#1e1e1e",
+      "backgroundColor": "transparent",
+      "fillStyle": "solid",
+      "strokeWidth": 2,
+      "strokeStyle": "solid",
+      "roughness": 1,
+      "opacity": 100,
+      "groupIds": [],
+      "frameId": null,
+      "index": "aj",
+      "roundness": null,
+      "seed": 549251065,
+      "version": 33,
+      "versionNonce": 1854522361,
+      "isDeleted": false,
+      "boundElements": null,
+      "updated": 1751540262996,
+      "link": null,
+      "locked": false,
+      "text": "Filter based on date\n[O] Today\n",
+      "fontSize": 16,
+      "fontFamily": 5,
+      "textAlign": "left",
+      "verticalAlign": "top",
+      "containerId": null,
+      "originalText": "Filter based on date\n[O] Today\n",
       "autoResize": true,
       "lineHeight": 1.25
     }

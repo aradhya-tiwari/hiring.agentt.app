@@ -2,7 +2,7 @@ import * as s from "drizzle-orm/sqlite-core"
 import { createInsertSchema } from "drizzle-zod"
 import { udb } from "../db.js"
 import { eq, sql } from "drizzle-orm"
-import "dotenv/config"
+// import "dotenv/config"
 
 export const jdTable = s.sqliteTable("jd", {
     id: s.integer().primaryKey({ autoIncrement: true }),
@@ -46,4 +46,5 @@ export const candidatesTable = s.sqliteTable("candidates", {
     updatedAt: s.integer().notNull().default(Date.now()),
     remarks: s.text({ mode: "json" }).$type<Array<{ by: number, rating: number, remark: string }>>()
 })
+export type candidateTableType = typeof candidatesTable.$inferSelect
 

@@ -1,14 +1,14 @@
 <script>
     import Input from "$lib/components/ui/input/input.svelte";
-    import Icon from "$lib/components/my/Icon.svelte";
+    import Icon from "$lib/components/utils/Icon.svelte";
     import { ModeWatcher, toggleMode } from "mode-watcher";
     import Button from "$lib/components/ui/button/button.svelte";
 </script>
 
 <div class="flex h-20 w-full items-center justify-around">
     <div>
-        <img src="" alt="" srcset="">
-        </div>
+        <img src="" alt="" srcset="" />
+    </div>
     <!-- <div class="h-full"></div -->
     <div class="md:w-[70%]">
         <Input
