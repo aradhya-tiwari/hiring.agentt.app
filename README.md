@@ -2,7 +2,7 @@
 Your hiring companion, from applicant tracking to taking actual interview hiring.agentT can help you with that.
 
 
-> tech-stack
+tech-stack
 >
 > frontend:- sveltekit, shadcn-svelte, tailwindcss
 >
