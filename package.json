@@ -8,7 +8,7 @@
   "main": "index.js",
   "workspaces": [
     "client",
-    "server",
+    "workers",
     "packages/*"
   ],
   "scripts": {
