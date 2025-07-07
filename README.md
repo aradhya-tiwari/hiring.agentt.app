@@ -3,7 +3,9 @@ Your hiring companion, from applicant tracking to taking actual interview hiring
 
 
 > tech-stack
+>
 > frontend:- sveltekit, shadcn-svelte, tailwindcss
-> backend:- cloudflare workers, HonoJS, auth.js, Openai realtime api, vercel ai-sdk
+>
+>  backend:- cloudflare workers, HonoJS, auth.js, Openai realtime api, vercel ai-sdk
 > db:- turso per tenant
 
