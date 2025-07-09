@@ -15,7 +15,7 @@
         "mode-watcher": "^1.1.0",
       },
       "devDependencies": {
-        "@hire/server": "workspace:^",
+        "@hire/workers": "workspace:^",
         "@internationalized/date": "^3.8.1",
         "@lucide/svelte": "^0.515.0",
         "@sveltejs/adapter-cloudflare": "^7.0.4",
@@ -36,8 +36,8 @@
         "vite": "^6.2.6",
       },
     },
-    "server": {
-      "name": "@hire/server",
+    "workers": {
+      "name": "@hire/workers",
       "dependencies": {
         "@cloudflare/workers-types": "^4.20250704.0",
         "hono": "^4.8.4",
@@ -128,7 +128,7 @@
 
     "@floating-ui/utils": ["@floating-ui/utils@0.2.10", "", {}, "sha512-aGTxbpbg8/b5JfU1HXSrbH3wXZuLPJcNEcZQFMxLs3oSzgtVu6nFPkbbGGUvBcUjKV2YyB9Wxxabo+HEH9tcRQ=="],
 
-    "@hire/server": ["@hire/server@workspace:server"],
+    "@hire/workers": ["@hire/workers@workspace:workers"],
 
     "@img/sharp-darwin-arm64": ["@img/sharp-darwin-arm64@0.33.5", "", { "optionalDependencies": { "@img/sharp-libvips-darwin-arm64": "1.0.4" }, "os": "darwin", "cpu": "arm64" }, "sha512-UT4p+iz/2H4twwAoLCqfA9UH5pI6DggwKEGuaPy7nCVQ8ZsiY5PIcrRvD1DzuY3qYL07NtIQcWnBSY/heikIFQ=="],
 
