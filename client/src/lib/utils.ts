@@ -1,6 +1,6 @@
 import { clsx, type ClassValue } from "clsx";
 import { twMerge } from "tailwind-merge";
-import type { AppType } from "@hire/server"
+import type { AppType } from "@hire/workers"
 import { hc } from "hono/client";
 import { PUBLIC_BACKEND_URL } from "$env/static/public";
 
