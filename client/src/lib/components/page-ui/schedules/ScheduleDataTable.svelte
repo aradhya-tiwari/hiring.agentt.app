@@ -3,23 +3,21 @@
         createTable,
         type ColumnDef,
         type Table,
-        type TableState,
         getCoreRowModel,
         getPaginationRowModel,
         getFilteredRowModel,
         getSortedRowModel,
         type SortingState,
     } from "@tanstack/table-core";
-    import { readable } from "svelte/store";
     import { Input } from "$lib/components/ui/input";
     import { Button } from "$lib/components/ui/button";
     import * as TableUI from "$lib/components/ui/table";
-    import { ChevronDown, ChevronUp } from "@lucide/svelte"; // Corrected import path
-    import type { scheduleTableType } from "./stores/store.svelte.ts"; // Corrected import path
-    import flexRender from "$lib/components/ui/data-table/flex-render.svelte"; // Corrected import type
+    import { ChevronDown, ChevronUp } from "@lucide/svelte";
+    import type { scheduleTableType } from "./stores/store.svelte.ts";
+    import FlexRender from "$lib/components/ui/data-table/flex-render.svelte";
 
     // Sample data for scheduleTableType
-    const data = readable<scheduleTableType[]>([
+    const initialData: scheduleTableType[] = [
         {
             id: 1,
             date: new Date("2025-07-01T10:00:00Z"),
@@ -64,11 +62,11 @@
             assignedTo: 203,
             status: "Scheduled",
         },
-    ]);
+    ];
 
-    let table: Table<scheduleTableType>;
+    let data = $state<scheduleTableType[]>(initialData);
     let globalFilter = $state("");
-    let sorting: SortingState = $state([]); // Corrected type
+    let sorting = $state<SortingState>([]);
     let pagination = $state({
         pageIndex: 0,
         pageSize: 10,
@@ -125,49 +123,52 @@
         },
     ];
 
-    $effect(() => {
-        table = createTable({
-            data: $data,
-            columns: columnDefs,
-            state: {
-                globalFilter,
-                sorting,
-                pagination,
-            },
-            onStateChange: (updater) => {
-                if (updater instanceof Function) {
-                    const newState = updater(table.getState());
-                    globalFilter = newState.globalFilter;
-                    sorting = newState.sorting;
-                    pagination = newState.pagination;
-                } else {
-                    globalFilter = updater.globalFilter ?? globalFilter;
-                    sorting = updater.sorting ?? sorting;
-                    pagination = updater.pagination ?? pagination;
-                }
-            },
-            getCoreRowModel: getCoreRowModel(),
-            getPaginationRowModel: getPaginationRowModel(),
-            getFilteredRowModel: getFilteredRowModel(),
-            getSortedRowModel: getSortedRowModel(),
-            renderFallbackValue: null, // Added missing required property
-        });
+    // Svelte 5: derive the table reactively from other state
+    const table = createTable({
+        data: data,
+        columns: columnDefs,
+        state: {
+            globalFilter: globalFilter,
+            sorting: sorting,
+            pagination: pagination,
+        },
+        onStateChange: (updater) => {
+            let newState;
+            if (typeof updater === "function") {
+                newState = updater(table.getState());
+            } else {
+                newState = updater;
+            }
+            if (newState.globalFilter !== undefined)
+                globalFilter = newState.globalFilter;
+            if (newState.sorting !== undefined) sorting = newState.sorting;
+            if (newState.pagination !== undefined)
+                pagination = newState.pagination;
+        },
+        getCoreRowModel: getCoreRowModel(),
+        getPaginationRowModel: getPaginationRowModel(),
+        getFilteredRowModel: getFilteredRowModel(),
+        getSortedRowModel: getSortedRowModel(),
+        renderFallbackValue: null,
     });
 
-    // Reactive updates for table options
-    $effect(() => {
-        if (table) {
-            table.setOptions((prev) => ({
-                ...prev,
-                data: $data,
-                state: {
-                    globalFilter,
-                    sorting,
-                    pagination,
-                },
-            }));
+    function handleSorting(header: any) {
+        if (!header.column) {
+            return;
         }
-    });
+        const handler = header.column.getToggleSortingHandler();
+        if (handler) {
+            handler(header.column.getCanSort());
+        }
+    }
+
+    function goToPreviousPage() {
+        table.previousPage();
+    }
+
+    function goToNextPage() {
+        table.nextPage();
+    }
 </script>
 
 <div class="w-full">
@@ -180,57 +181,66 @@
         />
     </div>
     <div class="rounded-md border">
-        <TableUI.Root>
-            <TableUI.Header>
-                {#each table.getHeaderGroups() as headerGroup}
-                    <TableUI.Row>
-                        {#each headerGroup.headers as header}
-                            <TableUI.Head class="[&:has([role=checkbox])]:pl-3">
-                                {#if !header.isPlaceholder}
-                                    <Button
-                                        variant="ghost"
-                                        onclick={() =>
-                                            header.column.getToggleSortingHandler()?.(
-                                                header.column.getCanSort(),
-                                            )}
-                                    >
-                                        {flexRender(
-                                            header.column.columnDef.header,
-                                            header.getContext(),
-                                        )}
-                                        {#if header.column.getIsSorted() === "asc"}
-                                            <ChevronUp class="ml-2 h-4 w-4" />
-                                        {:else if header.column.getIsSorted() === "desc"}
-                                            <ChevronDown class="ml-2 h-4 w-4" />
-                                        {/if}
-                                    </Button>
-                                {/if}
-                            </TableUI.Head>
-                        {/each}
-                    </TableUI.Row>
-                {/each}
-            </TableUI.Header>
-            <TableUI.Body>
-                {#each table.getRowModel().rows as row}
-                    <TableUI.Row>
-                        {#each row.getVisibleCells() as cell}
-                            <TableUI.Cell class="[&:has([role=checkbox])]:pl-3">
-                                {flexRender(
-                                    cell.column.columnDef.cell,
-                                    cell.getContext(),
-                                )}
-                            </TableUI.Cell>
-                        {/each}
-                    </TableUI.Row>
-                {/each}
-            </TableUI.Body>
-        </TableUI.Root>
+        {#if table}
+            <TableUI.Root>
+                <TableUI.Header>
+                    {#each table.getHeaderGroups() as headerGroup}
+                        <TableUI.Row>
+                            {#each headerGroup.headers as header}
+                                <TableUI.Head
+                                    class="[&:has([role=checkbox])]:pl-3"
+                                >
+                                    {#if !header.isPlaceholder}
+                                        <Button
+                                            variant="ghost"
+                                            onclick={() =>
+                                                handleSorting(header)}
+                                        >
+                                            <FlexRender
+                                                content={header.column.columnDef
+                                                    .header}
+                                                context={header.getContext()}
+                                            />
+                                            {#if header.column.getIsSorted() === "asc"}
+                                                <ChevronUp
+                                                    class="ml-2 h-4 w-4"
+                                                />
+                                            {:else if header.column.getIsSorted() === "desc"}
+                                                <ChevronDown
+                                                    class="ml-2 h-4 w-4"
+                                                />
+                                            {/if}
+                                        </Button>
+                                    {/if}
+                                </TableUI.Head>
+                            {/each}
+                        </TableUI.Row>
+                    {/each}
+                </TableUI.Header>
+                <TableUI.Body>
+                    {#each table.getRowModel().rows as row}
+                        <TableUI.Row>
+                            {#each row.getVisibleCells() as cell}
+                                <TableUI.Cell
+                                    class="[&:has([role=checkbox])]:pl-3"
+                                >
+                                    <FlexRender
+                                        content={cell.column.columnDef.cell}
+                                        context={cell.getContext()}
+                                    />
+                                </TableUI.Cell>
+                            {/each}
+                        </TableUI.Row>
+                    {/each}
+                </TableUI.Body>
+            </TableUI.Root>
+        {/if}
     </div>
     <div class="flex items-center justify-end space-x-2 py-4">
         <Button
             variant="outline"
             size="sm"
-            on:click={() => table.previousPage()}
+            onclick={goToPreviousPage}
             disabled={!table.getCanPreviousPage()}
         >
             Previous
@@ -238,7 +248,7 @@
         <Button
             variant="outline"
             size="sm"
-            on:click={() => table.nextPage()}
+            onclick={goToNextPage}
             disabled={!table.getCanNextPage()}
         >
             Next

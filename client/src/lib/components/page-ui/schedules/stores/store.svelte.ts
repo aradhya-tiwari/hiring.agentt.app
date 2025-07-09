@@ -42,4 +42,5 @@ class ScheduleStore {
     }
 }
 export let scheduleStore = new ScheduleStore()
+
 // scheduleStore.update(1002, { candidateId: 1, date: new Date(), type: "" })
