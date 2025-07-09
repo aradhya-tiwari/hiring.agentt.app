@@ -1,5 +1,5 @@
 <script lang="ts" generics="TData, TValue">
-    import type { scheduleTableType } from "../stores/store.svelte";
+    import { type scheduleTableType } from "../stores/store.svelte";
     import {
         type ColumnDef,
         type ColumnFiltersState,
@@ -18,6 +18,7 @@
     } from "$lib/components/ui/data-table/index.js";
     import * as Table from "$lib/components/ui/table/index.js";
     import { Root } from "$lib/components/ui/button";
+    import { scheduleDrawerStore } from "../stores/drawer.svelte";
 
     type DataTableProps<TData, TValue> = {
         columns: ColumnDef<TData, TValue>[];
@@ -101,12 +102,12 @@
     });
 </script>
 
-<span class="text-muted-foreground flex-1 text-sm">
-    {table.getFilteredSelectedRowModel().rows.length} of{" "}
-    {table.getFilteredRowModel().rows.length} row(s) selected.
-</span>
+<!-- <span class="text-muted-foreground flex-1 text-sm">
+        {table.getFilteredSelectedRowModel().rows.length} of{" "}
+        {table.getFilteredRowModel().rows.length} row(s) selected.
+    </span> -->
 <div class="rounded-md border">
-    <Table.Root>
+    <Table.Root class="h-full">
         <Table.Header>
             {#each table.getHeaderGroups() as headerGroup (headerGroup.id)}
                 <Table.Row>
@@ -123,26 +124,21 @@
                 </Table.Row>
             {/each}
         </Table.Header>
-        <Table.Body>
+        <Table.Body class="h-full">
             {#each table.getRowModel().rows as row (row.id)}
                 <Table.Row
                     data-state={row.getIsSelected() && "selected"}
-                    ondblclick={() => {}}
-                    class="cursor-pointer"
+                    onclick={() => {
+                        scheduleDrawerStore.openIt(row.original);
+                    }}
+                    class="cursor-pointer "
                 >
                     {#each row.getVisibleCells() as cell (cell.id)}
-                        <Table.Cell>
-                            <div
-                                oninput={() => {
-                                    alert(cell.id + "changed");
-                                }}
-                                contenteditable={true}
-                            >
-                                <FlexRender
-                                    content={cell.column.columnDef.cell}
-                                    context={cell.getContext()}
-                                />
-                            </div>
+                        <Table.Cell class="">
+                            <FlexRender
+                                content={cell.column.columnDef.cell}
+                                context={cell.getContext()}
+                            />
                         </Table.Cell>
                     {/each}
                 </Table.Row>
