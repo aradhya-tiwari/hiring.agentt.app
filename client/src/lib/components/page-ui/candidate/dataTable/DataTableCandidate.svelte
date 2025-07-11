@@ -1,38 +1,28 @@
 <script lang="ts" generics="TData, TValue">
-    import { type scheduleTableType } from "../stores/schedule.svelte";
+    import { createSvelteTable } from "$lib/components/ui/data-table";
+    import FlexRender from "$lib/components/ui/data-table/flex-render.svelte";
+    import * as Table from "$lib/components/ui/table/index";
     import {
-        type ColumnDef,
-        type ColumnFiltersState,
         getCoreRowModel,
         getFilteredRowModel,
         getPaginationRowModel,
         getSortedRowModel,
+        type ColumnDef,
+        type ColumnFiltersState,
         type PaginationState,
         type RowSelectionState,
         type SortingState,
         type VisibilityState,
     } from "@tanstack/table-core";
-    import {
-        createSvelteTable,
-        FlexRender,
-    } from "$lib/components/ui/data-table/index.js";
-    import * as Table from "$lib/components/ui/table/index.js";
-    import { Root } from "$lib/components/ui/button";
-    import { scheduleDrawerStore } from "../stores/drawer.svelte";
+    import { candidateDrawerStore } from "../stores/drawerCandidateStore.svelte";
+    import InfoCandidate from "../InfoCandidate.svelte";
 
     type DataTableProps<TData, TValue> = {
         columns: ColumnDef<TData, TValue>[];
         data: TData[];
     };
 
-    let {
-        data,
-        columns,
-    }: DataTableProps<
-        scheduleTableType,
-        ColumnDef<scheduleTableType>
-    > = $props();
-
+    const { data, columns } = $props();
     let pagination = $state<PaginationState>({ pageIndex: 0, pageSize: 50 });
     let sorting = $state<SortingState>([]);
     let columnFilters = $state<ColumnFiltersState>([]);
@@ -102,10 +92,6 @@
     });
 </script>
 
-<!-- <span class="text-muted-foreground flex-1 text-sm">
-        {table.getFilteredSelectedRowModel().rows.length} of{" "}
-        {table.getFilteredRowModel().rows.length} row(s) selected.
-    </span> -->
 <div class="rounded-md border">
     <Table.Root class="h-full">
         <Table.Header>
@@ -129,7 +115,7 @@
                 <Table.Row
                     data-state={row.getIsSelected() && "selected"}
                     onclick={() => {
-                        scheduleDrawerStore.openIt(row.original);
+                        candidateDrawerStore.openIt(row.original);
                     }}
                     class="cursor-pointer "
                 >

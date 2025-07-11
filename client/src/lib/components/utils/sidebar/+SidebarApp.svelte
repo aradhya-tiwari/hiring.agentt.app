@@ -1,19 +1,20 @@
 <script lang="ts">
     import * as Sidebar from "$lib/components/ui/sidebar/index";
     import ChevronDown from "@lucide/svelte/icons/chevron-down";
-    import Icon from "../Icon.svelte";
+    // import Icon from "../Icon.svelte";
     import type { iconStore } from "$lib/utils/icon-store";
     import Divider from "../Divider.svelte";
-
+    import Icon from "@iconify/svelte";
+    import { CogIcon } from "@lucide/svelte";
     const sidebarItems1: Array<{
         title: string;
         url: string;
-        icon: keyof typeof iconStore;
+        icon: string;
     }> = [
         {
             title: "Home",
             url: "/app",
-            icon: "home",
+            icon: "fluent-color:home-20",
         },
         {
             title: "Jobs",
@@ -34,7 +35,7 @@
     let sidebarItems2: Array<{
         title: string;
         url: string;
-        icon: keyof typeof iconStore;
+        icon: string;
     }> = [
         {
             title: "Resume Screener",
@@ -49,7 +50,7 @@
     ];
 </script>
 
-<Sidebar.Root>
+<Sidebar.Root class="">
     <Sidebar.Header />
     <div class="border w-[90%] m-auto h-20 rounded shadow">
         <!-- <img
@@ -57,7 +58,9 @@
             class="max-h-20 w-auto m-auto"
         /> -->
     </div>
-    <Sidebar.Content>
+    <Sidebar.Trigger class="absolute -right-6 top-10" title=" Open Sidebar "
+    ></Sidebar.Trigger>
+    <Sidebar.Content class="text-sm">
         <Sidebar.Group class="">
             <p class="text-xs">Links</p>
             {@render content(sidebarItems1)}
@@ -71,10 +74,10 @@
     <Sidebar.Footer class="text-sm">
         <Divider />
         <div class="flex gap-2">
-            <Icon name="settings" /> My Profile
+            <!-- <Icon name="settings" /> My Profile -->
         </div>
         <div class="flex gap-2">
-            <Icon name="settings" /> Settings
+            <Icon icon="" /> Settings
         </div>
     </Sidebar.Footer>
 </Sidebar.Root>
@@ -83,14 +86,19 @@
     links: Array<{
         title: string;
         url: string;
-        icon: keyof typeof iconStore;
+        icon: string;
     }>,
 )}
     <div class="ml-2">
         {#each links as item}
             <a href={item.url}>
                 <div class="my-2 flex">
-                    <Icon name={item.icon} className="" />
+                    <Icon
+                        icon={item.icon}
+                        width="24px"
+                        height="24px"
+                        className=" "
+                    />
                     {item.title}
                 </div>
             </a>

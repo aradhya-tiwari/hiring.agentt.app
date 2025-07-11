@@ -5,7 +5,7 @@
     import { Input } from "$lib/components/ui/input/index.js";
     import { Button, buttonVariants } from "$lib/components/ui/button/index.js";
     import { scheduleDrawerStore } from "./stores/drawer.svelte";
-    import { type scheduleTableType } from "./stores/store.svelte";
+    import { type scheduleTableType } from "./stores/schedule.svelte";
 
     const isDesktop = new MediaQuery("(min-width: 768px)");
 
@@ -16,6 +16,7 @@
     $effect(() => {
         scheduleData = scheduleDrawerStore.data as scheduleTableType;
     });
+    let dt = $state();
 </script>
 
 {#if isDesktop.current}
@@ -35,9 +36,10 @@
                 <div class="grid gap-2">
                     <label>Date:</label>
                     <Input
-                        type="text"
-                        value={scheduleData.date?.toDateString()}
-                        readonly
+                        type="date"
+                        value={new Date(scheduleData.date)
+                            .toISOString()
+                            .split("T")[0]}
                     />
                 </div>
                 <div class="grid gap-2">

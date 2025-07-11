@@ -1,5 +1,5 @@
 import type { ColumnDef } from "@tanstack/table-core";
-import type { scheduleTableType } from "./store.svelte"
+import type { scheduleTableType } from "./schedule.svelte"
 import { renderComponent } from "$lib/components/ui/data-table";
 import CheckboxDataTable from "../dataTable/CheckboxDataTable.svelte";
 
