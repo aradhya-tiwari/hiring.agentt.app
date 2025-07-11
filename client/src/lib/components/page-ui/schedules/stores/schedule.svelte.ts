@@ -1,3 +1,5 @@
+import { sampleScheduleData } from "./sample"
+
 export type scheduleTableType = {
     id?: number,
     date: Date,
@@ -11,7 +13,8 @@ export type scheduleTableType = {
 }
 
 class ScheduleStore {
-    schedule = $state<Array<scheduleTableType>>([])
+    schedule = $state<Array<scheduleTableType>>([]);
+    query = $state('query object')
     add(obj: scheduleTableType) {
 
         // TODO add validation
@@ -39,6 +42,16 @@ class ScheduleStore {
             }
         }
         throw "No object with id" + id
+    }
+    get() {
+        return this.schedule
+    }
+    sample() {
+        this.schedule = [...this.schedule, ...sampleScheduleData]
+    }
+    modifyQuery(qry: string) {
+        this.query = qry
+        console.log(this.query)
     }
 }
 export let scheduleStore = new ScheduleStore()
