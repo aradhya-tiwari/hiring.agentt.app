@@ -16,4 +16,4 @@
 
 <!-- Todo change it to data -->
 <DataTable {data} columns={scheduleColumns} />
-<SliderSchedule bind:open={scheduleDrawerStore.open} />
+<SliderSchedule open={scheduleDrawerStore.open} />
