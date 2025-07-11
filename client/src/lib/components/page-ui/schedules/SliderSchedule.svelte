@@ -37,7 +37,9 @@
                     <label>Date:</label>
                     <Input
                         type="date"
-                        value={scheduleData.date.toISOString().split("T")[0]}
+                        value={new Date(scheduleData.date)
+                            .toISOString()
+                            .split("T")[0]}
                     />
                 </div>
                 <div class="grid gap-2">

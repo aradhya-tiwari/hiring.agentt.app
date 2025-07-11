@@ -1,5 +1,5 @@
 <script lang="ts" generics="TData, TValue">
-    import { type scheduleTableType } from "../stores/store.svelte";
+    import { type scheduleTableType } from "../stores/schedule.svelte";
     import {
         type ColumnDef,
         type ColumnFiltersState,

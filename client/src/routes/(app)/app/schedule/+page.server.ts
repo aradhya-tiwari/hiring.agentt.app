@@ -13,7 +13,7 @@ async function fetchh() {
     scheduleStore.sample()
     console.log(scheduleStore.query)
 
-    return scheduleStore.get()
+    return scheduleStore.getQuery()
 }
 export async function load() {
 

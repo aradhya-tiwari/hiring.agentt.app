@@ -7,12 +7,11 @@
     let sidebarOpen = $state(true);
 </script>
 
-<div class="">
-    <Sidebar.Provider bind:open={sidebarOpen}>
+<div class="w-full">
+    <Sidebar.Provider bind:open={sidebarOpen} class="">
         <SidebarApp />
-        <Sidebar.Trigger class="" title=" Open Sidebar "></Sidebar.Trigger>
-        <div class="w-screen overflow-hidden">
-            <main class="w-full h-screen overflow-auto">
+        <div class="w-screen max-h-screen overflow-auto">
+            <main class="w-[96%] m-auto h-full">
                 <HeaderApp />
                 {@render children()}
             </main>
