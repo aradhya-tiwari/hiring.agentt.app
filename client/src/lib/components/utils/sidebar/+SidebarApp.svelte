@@ -14,22 +14,22 @@
         {
             title: "Home",
             url: "/app",
-            icon: "fluent-color:home-20",
+            icon: "mdi-light:home",
         },
         {
             title: "Jobs",
-            url: "/app",
-            icon: "jobs",
+            url: "/app/jobs",
+            icon: "uit:bag",
         },
         {
             title: "Schedule",
-            url: "/app",
-            icon: "schedule",
+            url: "/app/schedule",
+            icon: "ion:timer-outline",
         },
         {
             title: "Candidates",
-            url: "/app",
-            icon: "candidates",
+            url: "/app/candidates",
+            icon: "fluent:people-16-regular",
         },
     ];
     let sidebarItems2: Array<{
@@ -39,12 +39,12 @@
     }> = [
         {
             title: "Resume Screener",
-            icon: "resumeScreener",
+            icon: "qlementine-icons:resume-16",
             url: "/app/resume-screener",
         },
         {
             title: "A.I. Interviewer",
-            icon: "aiMeet",
+            icon: "material-symbols-light:robot-outline",
             url: "/app/ai-meet",
         },
     ];
@@ -58,8 +58,7 @@
             class="max-h-20 w-auto m-auto"
         /> -->
     </div>
-    <Sidebar.Trigger class="absolute -right-6 top-10" title=" Open Sidebar "
-    ></Sidebar.Trigger>
+
     <Sidebar.Content class="text-sm">
         <Sidebar.Group class="">
             <p class="text-xs">Links</p>
@@ -92,7 +91,7 @@
     <div class="ml-2">
         {#each links as item}
             <a href={item.url}>
-                <div class="my-2 flex">
+                <div class="py-2 gap-2 flex">
                     <Icon
                         icon={item.icon}
                         width="24px"
