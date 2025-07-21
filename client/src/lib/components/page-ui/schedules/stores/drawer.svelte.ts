@@ -7,6 +7,9 @@ class ScheduleDrawerStore {
         this.open = true
         this.data = data
     }
+    closeIt() {
+        this.open = false
+    }
     isOpen() {
         return open
     }

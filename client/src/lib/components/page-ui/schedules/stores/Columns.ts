@@ -25,8 +25,20 @@ export const scheduleColumns: ColumnDef<scheduleTableType>[] = [
         enableHiding: false,
     },
     {
-        accessorKey: "type",
-        header: "Type",
+        accessorKey: "date",
+        header: "Date",
+        cell: ({ row }) => {
+            const date = new Date(row.getValue("date"));
+            return date.toDateString();
+        },
+    },
+    {
+        accessorKey: "time",
+        header: "Time",
+        cell: ({ row }) => {
+            const date = new Date(row.getValue("date")); // Assuming 'date' accessor also contains time information
+            return date.toLocaleTimeString();
+        },
     },
     {
         accessorKey: "name",

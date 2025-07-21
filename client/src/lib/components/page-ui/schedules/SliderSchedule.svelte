@@ -62,7 +62,11 @@
                     <label>Status:</label>
                     <Input type="text" value={scheduleData.status} readonly />
                 </div>
-                <Button type="submit">Save changes</Button>
+                <Button
+                    type="submit"
+                    onclick={() => scheduleDrawerStore.closeIt()}
+                    >Save changes</Button
+                >
             </form>
         </Dialog.Content>
     </Dialog.Root>
@@ -76,7 +80,9 @@
                 </Drawer.Description>
             </Drawer.Header>
             <hr class=" shadow" />
-            <form class="grid items-start text-sm gap-4 px-4 overflow-auto">
+            <form
+                class="grid items-start text-sm gap-4 px-4 overflow-auto py-5"
+            >
                 <div class="">
                     <label>ID:</label>
                     <Input type="text" value={scheduleData.id} readonly />
@@ -88,11 +94,11 @@
                         value={scheduleData.date?.toDateString()}
                         readonly
                     />
-                    <Input
+                    <!-- <Input
                         type="text"
                         value={scheduleData.date?.toTimeString()}
                         readonly
-                    />
+                    /> -->
                 </div>
                 <div class="grid gap-2">
                     <label>Type:</label>
@@ -117,7 +123,10 @@
                 <div class="grid g"></div>
                 <div class=" flex justify-between flex-row w-full gap-3">
                     <div class="w-full">
-                        <Button type="submit" class="w-full"
+                        <Button
+                            type="submit"
+                            class="w-full"
+                            onclick={() => scheduleDrawerStore.closeIt()}
                             >Save changes</Button
                         >
                     </div>
