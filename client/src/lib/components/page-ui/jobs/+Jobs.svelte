@@ -16,6 +16,7 @@
             extraInfo: {},
             iconUrl: "https://placehold.co/10",
             coverImg_url: "https://placehold.co/600x400/910/111",
+            slug: "software-engineer",
         },
         {
             id: 2,
@@ -30,6 +31,7 @@
             extraInfo: {},
             iconUrl: "https://placehold.co/10",
             coverImg_url: "https://placehold.co/600x400/456/567",
+            slug: "devops-engineer",
         },
         {
             id: 3,
@@ -44,6 +46,7 @@
             extraInfo: {},
             iconUrl: "https://placehold.co/10",
             coverImg_url: "https://placehold.co/600x400/ff9/cc9",
+            slug: "ui-ux-designer",
         },
         {
             id: 4,
@@ -58,6 +61,7 @@
             extraInfo: {},
             iconUrl: "https://placehold.co/10",
             coverImg_url: "https://placehold.co/600x400/2c8/456",
+            slug: "data-scientist",
         },
         {
             id: 5,
@@ -72,6 +76,7 @@
             extraInfo: {},
             iconUrl: "https://placehold.co/10",
             coverImg_url: "https://placehold.co/600x400",
+            slug: "project-manager",
         },
     ];
 </script>

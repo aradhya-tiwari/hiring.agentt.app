@@ -2,12 +2,13 @@
     import * as Card from "$lib/components/ui/card/index.js";
     import type { jobType } from "$lib/components/page-ui/jobs/states/jobs.svete";
     import { Button } from "$lib/components/ui/button";
+    import { goto } from "$app/navigation";
 
-    let { job } = $props<{ job: jobType }>();
+    let { job }: { job: jobType } = $props();
 </script>
 
-<Card.Root class="min-w-xs justify-between overflow-hidden">
-    <div class="relative h-32 w-full">
+<Card.Root class="min-w-xs pt-0 justify-between overflow-hidden">
+    <div class="relative h-40 w-full">
         {#if job.coverImg_url}
             <img
                 src={job.coverImg_url}
@@ -35,15 +36,14 @@
             </div>
         {/if}
     </div>
-    <Card.Header class="pt-10">
+    <!-- <Card.Header class="pt-10"></Card.Header> -->
+    <Card.Content class="flex-grow pt-5 space-y-2">
         <Card.Title>{job.title}</Card.Title>
         <Card.Description
             >{job.role} - {job.location} ({job.mode})</Card.Description
         >
-    </Card.Header>
-    <Card.Content class="flex-grow">
         <p class="text-sm text-gray-600 mb-2">
-            Minimum Experience: {job.minExperience} years
+            Exp: {job.minExperience} years
         </p>
         <div class="flex gap-1 flex-wrap">
             {#each job.technologies.split(",") as item}
@@ -55,7 +55,11 @@
             {/each}
         </div>
     </Card.Content>
-    <Card.Footer class="flex justify-end p-4">
-        <Button variant="outline" class="shadow ">View Details</Button>
+    <Card.Footer class="flex justify-end px-4">
+        <Button
+            variant="outline"
+            class="shadow"
+            onclick={() => goto(`/app/jobs/${job.id}`)}>View Details</Button
+        >
     </Card.Footer>
 </Card.Root>
