@@ -6,6 +6,7 @@
     import Divider from "../Divider.svelte";
     import Icon from "@iconify/svelte";
     import { CogIcon } from "@lucide/svelte";
+    import { page } from "$app/state";
     const sidebarItems1: Array<{
         title: string;
         url: string;
@@ -14,12 +15,12 @@
         {
             title: "Home",
             url: "/app",
-            icon: "mdi-light:home",
+            icon: "iconamoon:home-light",
         },
         {
             title: "Jobs",
             url: "/app/jobs",
-            icon: "uit:bag",
+            icon: "basil:bag-outline",
         },
         {
             title: "Schedule",
@@ -44,13 +45,22 @@
         },
         {
             title: "A.I. Interviewer",
-            icon: "material-symbols-light:robot-outline",
+            icon: "mage:robot",
             url: "/app/ai-meet",
         },
+        {
+            title: "Questionaire",
+            icon: "mingcute:book-line",
+            url: "/app/questionaire",
+        },
     ];
+    let cuurentPage = $state("Home");
+    $effect(() => {
+        console.log(page.route.id);
+    });
 </script>
 
-<Sidebar.Root class="">
+<Sidebar.Root class="" variant="floating">
     <Sidebar.Header />
     <div class="border w-[90%] m-auto h-20 rounded shadow">
         <!-- <img
@@ -62,7 +72,9 @@
     <Sidebar.Content class="text-sm">
         <Sidebar.Group class="">
             <p class="text-xs">Links</p>
+            <!-- <Sidebar.MenuItem> -->
             {@render content(sidebarItems1)}
+            <!-- </Sidebar.MenuItem> -->
         </Sidebar.Group>
         <Divider />
         <Sidebar.Group>
@@ -75,9 +87,9 @@
         <div class="flex gap-2">
             <!-- <Icon name="settings" /> My Profile -->
         </div>
-        <div class="flex gap-2">
-            <Icon icon="" /> Settings
-        </div>
+        <button class="flex gap-1">
+            <Icon icon="akar-icons:gear" width="24" height="24" /> Settings
+        </button>
     </Sidebar.Footer>
 </Sidebar.Root>
 
@@ -88,19 +100,27 @@
         icon: string;
     }>,
 )}
-    <div class="ml-2">
+    <Sidebar.Menu>
         {#each links as item}
-            <a href={item.url}>
-                <div class="py-2 gap-2 flex">
-                    <Icon
-                        icon={item.icon}
-                        width="24px"
-                        height="24px"
-                        className=" "
-                    />
-                    {item.title}
-                </div>
-            </a>
+            <Sidebar.MenuItem>
+                <Sidebar.MenuButton
+                    isActive={page.route.id === `/(app)${item.url}`}
+                >
+                    <a href={item.url} class="flex gap-2">
+                        <!-- <div
+                            class=""
+                        > -->
+                        <Icon
+                            icon={item.icon}
+                            width="24px"
+                            height="24px"
+                            className=" "
+                        />
+                        {item.title}
+                        <!-- </div> -->
+                    </a>
+                </Sidebar.MenuButton></Sidebar.MenuItem
+            >
         {/each}
-    </div>
+    </Sidebar.Menu>
 {/snippet}

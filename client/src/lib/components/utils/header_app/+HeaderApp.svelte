@@ -3,24 +3,28 @@
     import Icon from "@iconify/svelte";
     import { ModeWatcher, toggleMode } from "mode-watcher";
     import Button from "$lib/components/ui/button/button.svelte";
+    import * as Sidebar from "$lib/components/ui/sidebar/index.js";
+    import SidebarTrigger from "$lib/components/ui/sidebar/sidebar-trigger.svelte";
 </script>
 
 <div class="flex h-20 w-full items-center justify-around">
-    <div>
-        <img src="" alt="" srcset="" />
-    </div>
+    <SidebarTrigger class=" md:hidden mr-2s" title="Open Sidebar">
+        <Icon icon="material-symbols:menu-rounded" width="24px" height="24px" />
+    </SidebarTrigger>
     <!-- <div class="h-full"></div -->
-    <div class="md:w-[70%]">
+    <div class="md:w-[70%] w-full relative">
         <Input
-            class="hidden md:block shadow-md rounded-full bg-white"
+            class="hidde md:block shadow-md rounded-lg  bg-white"
             placeholder="Search"
         />
+        <Icon
+            icon="si:search-line"
+            width="24"
+            height="24"
+            class="absolute scale-70 md:scale-100 right-2 top-1"
+        />
     </div>
-    <div class="flex gap-5">
-        <Button variant="outline" class=" md:hidden" size="icon">
-            <Icon icon="search" className="" />
-        </Button>
-
+    <div class="flex gap-3 md:gap-5">
         <a href="/app/notification" class="relative p-1">
             <span
                 class="bg-red-500 text-white text-xs p-1 py-0 absolute right-0 top-0 rounded-full"
@@ -31,11 +35,14 @@
                 icon="mdi:bell-outline"
                 width="24"
                 height="24"
-                class="hover:rotate-12 transition-all"
+                class="hover:animate-spin scale-75 md:scale-100 transition-all"
             />
         </a>
         <!-- light mode dark mode -->
-        <button onclick={toggleMode} class="text-center relative flex">
+        <button
+            onclick={toggleMode}
+            class="text-center relative cursor-pointer flex"
+        >
             <!-- <Icon
                 icon="lightMode"
                 className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 !transition-all dark:-rotate-90 dark:scale-0"
@@ -44,13 +51,13 @@
                 icon="ri:sun-fill"
                 width="24"
                 height="24"
-                class="rotate-0 scale-100 !transition-all dark:-rotate-90 dark:scale-0"
+                class="rotate-0 mt-[2px] scale-70 md:scale-100 !transition-all dark:-rotate-90 dark:scale-0"
             />
             <Icon
                 icon="line-md:moon-twotone"
                 width="24"
                 height="24"
-                class="absolute rotate-90 scale-0 !transition-all dark:rotate-0 dark:scale-100"
+                class="absolute rotate-90 scale-0 top-[2px] !transition-all dark:rotate-0 dark:scale-100"
             />
             <!-- <Icon
                 icon="darkMode"

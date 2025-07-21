@@ -1,7 +1,7 @@
 <script>
     import Candidate from "$lib/components/page-ui/candidate/+Candidate.svelte";
+    import PageTitle from "$lib/components/utils/PageTitle.svelte";
 </script>
 
-<h1 class="text-3xl my-5">Candidates</h1>
-
+<PageTitle title="Candidate" />
 <Candidate />
