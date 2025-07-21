@@ -1,6 +1,7 @@
 <script>
     import Jobs from "$lib/components/page-ui/jobs/+Jobs.svelte";
+    import PageTitle from "$lib/components/utils/PageTitle.svelte";
 </script>
 
-<h1 class="text-3xl font-semibold underline">Job Section</h1>
+<PageTitle title="Jobs Section" />
 <Jobs />
