@@ -1,5 +1,6 @@
 # dependencies (bun install)
 node_modules
+*.screenshots.excalidraw.json
 
 # output
 out
@@ -14,7 +15,6 @@ coverage
 logs
 _.log
 report.[0-9]_.[0-9]_.[0-9]_.[0-9]_.json
-
 # dotenv environment variable files
 .env
 .env.development.local

@@ -1,6 +1,6 @@
 import { drizzle, LibSQLDatabase } from 'drizzle-orm/libsql';
 import { createClient, type Client } from '@libsql/client';
-import * as userDbSchema from './schema/schema.db.js';
+import * as userDbSchema from './schema/schema.org.js';
 import type { Context } from 'hono';
 // import { config } from 'dotenv';
 

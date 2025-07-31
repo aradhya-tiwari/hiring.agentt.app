@@ -5,12 +5,19 @@
     "deploy": "wrangler deploy --minify",
     "cf-typegen": "wrangler types --env-interface CloudflareBindings",
     "db-user": "turso dev --db-file ./db-files/user1.db --port 8081",
-    "db-internal": "turso dev --db-file ./db-files/internal/internal.db --port 8082",
+    "db-internal": "turso dev --db-file ./db-files/internal/internal.db --port 8080",
+    "drizzle:push:internal": "npx drizzle-kit push --config ./drizzle.internal.config.ts",
+    "drizzle:push:org": "npx drizzle-kit push",
     "test-route": "wrangler dev ./src/routes/test/index.ts --port 8788"
   },
   "main": "./src/index.ts",
   "dependencies": {
     "@cloudflare/workers-types": "^4.20250704.0",
+    "@hono/auth-js": "^1.1.0",
+    "@libsql/client": "^0.15.10",
+    "dotenv": "^17.2.0",
+    "drizzle-orm": "^0.44.4",
+    "drizzle-zod": "^0.8.2",
     "hono": "^4.8.4"
   },
   "devDependencies": {

@@ -12,7 +12,10 @@
     "packages/*"
   ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "db:user": "turso dev --db-file ./workers/db-files/user1.db --port 8081",
+    "db:internal": "turso dev --db-file ./workers/db-files/internal.db --port 8080",
+    "db:all": "turso dev --db-file ./workers/db-files/user1.db --port 8081 & turso dev --db-file ./workers/db-files/internal.db --port 8080"
   },
   "devDependencies": {},
   "dependencies": {}
