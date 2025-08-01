@@ -7,7 +7,7 @@
     let { job }: { job: jobType } = $props();
 </script>
 
-<Card.Root class="min-w-xs pt-0 justify-between overflow-hidden">
+<Card.Root class="min-w-xs pt-0 justify-between  overflow-hidden">
     <div class="relative h-40 w-full">
         {#if job.coverImg_url}
             <img
@@ -37,7 +37,7 @@
         {/if}
     </div>
     <!-- <Card.Header class="pt-10"></Card.Header> -->
-    <Card.Content class="flex-grow pt-5 space-y-2">
+    <Card.Content class="flex-grow  pt-5 space-y-2">
         <Card.Title>{job.title}</Card.Title>
         <Card.Description
             >{job.role} - {job.location} ({job.mode})</Card.Description

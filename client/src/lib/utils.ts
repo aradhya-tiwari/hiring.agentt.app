@@ -7,7 +7,9 @@ import { PUBLIC_BACKEND_URL } from "$env/static/public";
 export function cn(...inputs: ClassValue[]) {
 	return twMerge(clsx(inputs));
 }
-export const api = hc<AppType>(PUBLIC_BACKEND_URL)
+export const hwc = hc<AppType>(PUBLIC_BACKEND_URL, {
+	init: { credentials: "include" }
+}).v1
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export type WithoutChild<T> = T extends { child?: any } ? Omit<T, "child"> : T;
 // eslint-disable-next-line @typescript-eslint/no-explicit-any

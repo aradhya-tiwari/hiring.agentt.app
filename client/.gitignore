@@ -7,12 +7,12 @@ node_modules
 .wrangler
 /.svelte-kit
 /build
-
 # OS
 .DS_Store
 Thumbs.db
 
 # Env
+.dev.vars
 .env
 .env.*
 !.env.example

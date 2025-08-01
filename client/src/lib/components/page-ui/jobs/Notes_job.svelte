@@ -2,10 +2,12 @@
     import ScrollArea from "$lib/components/ui/scroll-area/scroll-area.svelte";
 </script>
 
-<ScrollArea class="h-[50%] overflow-auto border-2 px-3 shadow rounded-xl p-2">
-    <h1 class="text-md font-medium my-2">Notes</h1>
+<ScrollArea
+    class="h-[50%] bg-white/50 overflow-auto border px-3 shadow rounded-xl p-2"
+>
+    <h1 class="text-md font-medium p-2">Notes</h1>
 
-    <div class="shadow border-2 p-2 rounded-lg">
+    <div class="shadow border p-2 bg-accent rounded-lg">
         <div class="  flex justify-between">
             {#if true}
                 <div class="rounded-full overflow-hidden w-12 h-12">
@@ -22,7 +24,9 @@
                     No Icon
                 </div>
             {/if}
-            <span class="text-sm self-center text-gray-500">Just now</span>
+            <span class="text-xs self-center underline text-gray-500"
+                >Just now</span
+            >
         </div>
         <p class="text-xs dark:text-gray-400 my-2 text-gray-600">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex amet

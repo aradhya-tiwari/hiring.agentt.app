@@ -25,7 +25,7 @@
         <Sidebar.Trigger class=" hidden md:block" title=" Open Sidebar "
         ></Sidebar.Trigger>
         <div class="w-screen rounded-md max-h-screen overflow-auto">
-            <main class="w-[96%] m-auto h-full">
+            <main class="w-[99%] m-auto h-full">
                 <HeaderApp />
                 {@render children()}
             </main>

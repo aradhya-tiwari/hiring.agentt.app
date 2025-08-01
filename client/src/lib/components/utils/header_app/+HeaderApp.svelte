@@ -7,8 +7,8 @@
     import SidebarTrigger from "$lib/components/ui/sidebar/sidebar-trigger.svelte";
 </script>
 
-<div class="flex h-20 w-full items-center justify-around">
-    <SidebarTrigger class=" md:hidden mr-2s" title="Open Sidebar">
+<div class="flex h-20 w-full items-center justify-between">
+    <SidebarTrigger class=" md:hidden mr-2" title="Open Sidebar">
         <Icon icon="material-symbols:menu-rounded" width="24px" height="24px" />
     </SidebarTrigger>
     <!-- <div class="h-full"></div -->

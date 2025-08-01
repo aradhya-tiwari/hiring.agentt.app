@@ -11,7 +11,7 @@
 <div class="flex flex-wrap justify-center md:justify-evenly gap-4 md:px-8">
     {#each new Array(5) as item, idx}
         <div
-            class="md:w-60 w-[90%] bg-white border flex flex-col rounded-xl text-sm hover:scale-102 transition-all cursor-pointer shadow-lg max-w-[80%] p-3 m-1"
+            class="md:w-60 w-[90%] bg-accent border flex flex-col rounded-xl text-sm hover:scale-102 transition-all cursor-pointer shadow-lg max-w-[80%] p-3 m-1"
         >
             <b class="underline">Step {idx}</b>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>

@@ -8,6 +8,7 @@
     import NotificationJob from "$lib/components/page-ui/jobs/Notification_job.svelte";
     import NotesJob from "$lib/components/page-ui/jobs/Notes_job.svelte";
     import ProcessJob from "$lib/components/page-ui/jobs/Process_Job.svelte";
+    import ScrollArea from "$lib/components/ui/scroll-area/scroll-area.svelte";
 
     let { data } = $props();
 
@@ -29,20 +30,19 @@
     };
 </script>
 
-<div class="lg:w-[65%] lg:px-3 my-1">
-    <ProgressBarJob />
-</div>
 {#if job}
-    <div class="flex lg:p-2">
-        <div class="container lg:w-[65%] relative mx-auto shrink-0">
+    <div class="flex w-full gap-5 justify-between lg:p-2">
+        <ScrollArea
+            class="container h-[88vh] lg:w-[65%] relative mx-auto shrink-0"
+        >
             <!-- Tag -->
             <span
                 class="absolute right-5 top-1 z-50 border-white dark:border-primary-foreground border-3 bg-black dark:bg-white text-white dark:text-black px-4 rounded-full py-1"
             >
-                Taking Applications
+                {"Taking Applications"}
             </span>
             <Card.Root
-                class="w-full    max-w-4xl mx-auto shadow-lg rounded-lg overflow-hidden"
+                class="w-full border bg-primary-foreground max-w-4xl mx-auto shadow-lg rounded-lg overflow-hidden"
             >
                 <div class="relative h-48 w-full">
                     {#if job.coverImg_url}
@@ -77,11 +77,14 @@
                         >{job.title}</Card.Title
                     >
                     <Card.Description
-                        class="text-lg px-2 text-sm text-gray-600 dark:text-gray-300"
+                        class="px-2 text-sm text-gray-600 dark:text-gray-300"
                     >
                         {job.role} - {job.location} ({job.mode})
                     </Card.Description>
                 </Card.Header>
+                <div class="w-[98%] md:w-[90%] m-auto">
+                    <ProgressBarJob />
+                </div>
                 <!-- Steps -->
                 <h1 class="text-xl font-medium px-8">Process</h1>
                 <ProcessJob />
@@ -119,12 +122,12 @@
                     </div>
                 </Card.Content>
             </Card.Root>
-        </div>
+        </ScrollArea>
 
         <!-- Notes and Notification -->
         <div
             id="notes_notification"
-            class="w-full h-[90vh] hidden p-2 lg:flex flex-col gap-2"
+            class="w-full h-[88vh] hidden lg:flex flex-col gap-2"
         >
             <NotificationJob />
             <NotesJob />

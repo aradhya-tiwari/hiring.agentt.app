@@ -60,7 +60,7 @@
     });
 </script>
 
-<Sidebar.Root class="" variant="floating">
+<Sidebar.Root class="max-w-[20%]  " variant="floating">
     <Sidebar.Header />
     <div class="border w-[90%] m-auto h-20 rounded shadow">
         <!-- <img
