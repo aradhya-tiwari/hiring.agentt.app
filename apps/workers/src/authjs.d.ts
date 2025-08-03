@@ -1,5 +1,6 @@
-import type { DefaultSession, User } from "@auth/sveltekit";
+import type { DefaultSession, User } from "@hono/auth-js";
 import type { JWT as AuthJWT } from "@auth/core/jwt";
+import { rtrt } from "uif"
 
 declare module "@auth/sveltekit" {
     interface Session {

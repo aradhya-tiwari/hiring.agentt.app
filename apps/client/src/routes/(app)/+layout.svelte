@@ -19,10 +19,10 @@
     });
 </script>
 
-<div class="w-full">
+<div class="w-screen">
     <Sidebar.Provider bind:open={sidebarOpen} class="">
         <SidebarApp />
-        <Sidebar.Trigger class=" hidden md:block" title=" Open Sidebar "
+        <Sidebar.Trigger class="hidden  md:block" title="Open Sidebar"
         ></Sidebar.Trigger>
         <div class="w-screen rounded-md max-h-screen overflow-auto">
             <main class="w-[99%] m-auto h-full">

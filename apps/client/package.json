@@ -12,7 +12,6 @@
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch"
 	},
 	"devDependencies": {
-		"ai-meet": "workspace:^",
 		"@hire/workers": "workspace:^",
 		"@internationalized/date": "^3.8.1",
 		"@lucide/svelte": "^0.515.0",
@@ -43,6 +42,7 @@
 		"chart.js": "^4.5.0",
 		"daisyui": "^5.0.43",
 		"hono": "^4.8.3",
-		"mode-watcher": "^1.1.0"
+		"mode-watcher": "^1.1.0",
+		"form-renderer": "workspace:^"
 	}
 }

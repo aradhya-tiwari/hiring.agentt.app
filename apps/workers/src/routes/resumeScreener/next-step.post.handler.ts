@@ -27,7 +27,7 @@ const handler = factApp.createHandlers(
         const userOrgs = authUser.user?.orgs
         const db = udb(c, org)
         const jobId = c.req.param("jobId")
-        const reqdata: { candidates: typeof nextStepReqData._type[] } = await c.req.json()
+        const reqdata: { candidates: z.infer<typeof nextStepReqData> } = await c.req.json()
         let candidates = reqdata.candidates
 
         let stepsResp = await db.query.processTable.findMany({
@@ -48,7 +48,7 @@ const handler = factApp.createHandlers(
         }} 
         */
         function getProcessId(processId: number) {
-            
+
             return
         }
         let values: typeof resumeScreenResultTable.$inferInsert[] = [{

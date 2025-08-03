@@ -1,3 +1,2 @@
 - Use only svelte 5 syntax, no on:click only runes
-- first create todo list then proceed with editing 
 - use cloudflare products if you think you need like cloudflare workflows for long running tasks that need states, durable object websockets with hibernation. 

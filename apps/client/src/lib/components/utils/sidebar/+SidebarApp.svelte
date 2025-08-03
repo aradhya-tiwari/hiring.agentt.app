@@ -7,6 +7,7 @@
     import Icon from "@iconify/svelte";
     import { CogIcon } from "@lucide/svelte";
     import { page } from "$app/state";
+
     const sidebarItems1: Array<{
         title: string;
         url: string;
@@ -60,14 +61,22 @@
     });
 </script>
 
-<Sidebar.Root class="max-w-[20%]  " variant="floating">
-    <Sidebar.Header />
-    <div class="border w-[90%] m-auto h-20 rounded shadow">
-        <!-- <img
+<Sidebar.Root class="" variant="floating">
+    <Sidebar.Header class="">
+        <div
+            class=" relative text-center text-xl w-[90%] font-semibold m-auto py-8 border-b rounded"
+        >
+            <span class="absolute left-1/2 -translate-1/2 top-1/2">
+                hiring.agentT.app
+            </span>
+        </div>
+    </Sidebar.Header>
+
+    <!-- <img
             src="https://i.pinimg.com/736x/7f/5d/85/7f5d858e53d7ae90243447ebd37cd7e5.jpg"
             class="max-h-20 w-auto m-auto"
         /> -->
-    </div>
+    <!-- </div> -->
 
     <Sidebar.Content class="text-sm">
         <Sidebar.Group class="">
