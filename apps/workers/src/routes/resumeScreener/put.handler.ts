@@ -2,7 +2,6 @@ import { udb } from "$lib/db/db";
 import { factApp } from "$lib/util";
 import { createFactory } from "hono/factory";
 
-
 const handler = factApp
     .createHandlers(async (c) => {
         const org = ""

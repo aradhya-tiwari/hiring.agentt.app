@@ -7,12 +7,12 @@
     import SidebarTrigger from "$lib/components/ui/sidebar/sidebar-trigger.svelte";
 </script>
 
-<div class="flex h-20 w-full items-center justify-between">
+<header class="flex h-18 m-auto w-[95%] items-center justify-between">
     <SidebarTrigger class=" md:hidden mr-2" title="Open Sidebar">
         <Icon icon="material-symbols:menu-rounded" width="24px" height="24px" />
     </SidebarTrigger>
     <!-- <div class="h-full"></div -->
-    <div class="md:w-[70%] w-full relative">
+    <div class="md:w-[80%] w-full relative">
         <Input
             class="hidde md:block shadow-md rounded-lg  bg-white"
             placeholder="Search"
@@ -66,4 +66,4 @@
             <!-- <span class="sr-only">Toggle theme</span>   -->
         </button>
     </div>
-</div>
+</header>

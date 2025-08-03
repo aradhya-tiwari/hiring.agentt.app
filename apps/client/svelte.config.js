@@ -10,7 +10,7 @@ const config = {
 		adapter: adapter(),
 		alias: { "@/*": "./path/to/lib/*" }
 	},
-	extensions: [".svelte",]
+	extensions: [".svelte"]
 };
 
 export default config;

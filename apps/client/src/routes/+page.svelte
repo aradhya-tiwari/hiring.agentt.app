@@ -1,11 +1,8 @@
 <script>
     import { SignIn, SignOut } from "@auth/sveltekit/components";
     import { page } from "$app/stores";
-    import { AiMeet,Chi } from "ai-meet";
 </script>
 
-<AiMeet />
-<Chi/>
 <h1>SvelteKit Auth Example</h1>
 <div>
     {#if $page.data.session}

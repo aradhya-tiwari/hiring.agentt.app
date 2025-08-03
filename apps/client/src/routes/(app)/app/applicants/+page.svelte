@@ -4,4 +4,6 @@
 </script>
 
 <PageTitle title="Applicants" />
-<Applicants />
+<div class="bg-primary-foreground">
+    <Applicants />
+</div>
