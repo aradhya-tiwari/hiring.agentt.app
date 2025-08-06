@@ -1,3 +1,7 @@
 [submodule "packages/form-renderer"]
 	path = packages/form-renderer
 	url = https://github.com/aradhya-tiwari/svelte-form-renderer
+
+[submodule "packages/ai-meet"]
+	path = packages/ai-meet
+	url = https://github.com/aradhya-tiwari/ai-meet
